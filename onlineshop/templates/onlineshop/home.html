@@ -11,13 +11,14 @@
         <a href="#" class="logo">Masha's</a>
         <ul>
             <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Clothes</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Community</a></li>
         </ul>
     </header>
     <section>
         <img src="{% static 'img/stars.png' %}" id="stars">
+        <img src="{% static 'img/hanger.png' %}" id="hanger">
         <img src="{% static 'img/back.png' %}" id="back">
         <h2 id="text">Wardrobe Wonders</h2>
         <a href="#" id="btn">Explore</a>
@@ -79,7 +80,7 @@
             movements in driving change.<br><br>
 
             Inspired by her talks, many communities started their own clothes exchange initiatives. Wardrobe Wonders became a blueprint for sustainable
-            fashion practices, proving that small actions could lead to significant impact. Masha's vision was coming to life, one exchanged garment at a time.<br>
+            fashion practices, proving that small actions could lead to significant impact. Masha's vision was coming to life, one exchanged garment at a time.<br><br>
 
             <b>Personal Journeys and Transformations</b><br><br>
             The magic of Wardrobe Wonders lay not only in the clothes but also in the personal journeys it facilitated. Members often shared how the community had
@@ -114,6 +115,7 @@
     </div>
     <script>
         let stars = document.getElementById('stars');
+        let hanger = document.getElementById('hanger');
         let back = document.getElementById('back');
         let text = document.getElementById('text');
         let btn = document.getElementById('btn');
@@ -122,6 +124,7 @@
         window.addEventListener('scroll', function (){
             let value = window.scrollY;
             stars.style.left = value * 0.25 + 'px';
+            hanger.style.right = value * 0.50 +"px";
             back.style.top = value * 0.50 + 'px';
             text.style.marginRight = value * 4 + 'px';
             text.style.marginTop = value * 1.5 + 'px';

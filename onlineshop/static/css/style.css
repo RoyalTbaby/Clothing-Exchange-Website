@@ -112,6 +112,11 @@ section img#stars {
     margin-top: 40px;
 }
 
+section img#hanger {
+    object-fit: scale-down;
+    margin-top: 40px;
+}
+
 #text {
     position: relative;
     right: -350px;
@@ -151,3 +156,4 @@ section img#stars {
     font-size: 1.2em;
     color: #fff;
 }
+
