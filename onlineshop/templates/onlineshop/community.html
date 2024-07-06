@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Swipe Clothes Here</h1>
-    <hr>
-    {% for post in posts %}
-        <h3>{{ post.title }}</h3>
-        <p>By {{ post.author }} on {{ post.date }}</p>
-        <p>{{ post.content }}</p>
-    {% endfor %}
-</body>
-</html>
+{% extends 'onlineshop/base.html' %}
+{% block content %}
+<h2>community</h2>
+{% endblock content %}

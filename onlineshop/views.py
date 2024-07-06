@@ -11,10 +11,10 @@ posts = [{
 },
 
     {
-    'author': 'Jane Doe',
-    'title': 'Post 3',
-    'content': 'i am dead',
-    'date': '2nd October, 3933',
+        'author': 'Jane Doe',
+        'title': 'Post 3',
+        'content': 'i am dead',
+        'date': '2nd October, 3933',
     }
 ]
 
@@ -24,7 +24,11 @@ def show_home(request):
 
 
 def about(request):
-    context={
+    return render(request, 'onlineshop/community.html')
+
+
+def clothes(request):
+    context = {
         'posts': posts
     }
-    return render(request, 'onlineshop/community.html', {'posts': posts})
+    return render(request, 'onlineshop/clothes.html', {'posts': posts})
