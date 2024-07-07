@@ -10,10 +10,10 @@
     <header>
         <a href="#" class="logo">Masha's</a>
         <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Clothes</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Community</a></li>
+            <li><a href="#" class="auth-links">Home</a></li>
+            <li><a href="{% url 'clothes' %}" class="auth-links">Clothes</a></li>
+            <li><a href="#" class="auth-links">Events</a></li>
+            <li><a href="{% url 'community' %}" class="auth-links">Community</a></li>
         </ul>
     </header>
     <section>

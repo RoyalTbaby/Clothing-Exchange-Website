@@ -63,6 +63,27 @@ header ul li a.active {
     color: #2b1055;
 }
 
+.auth-links{
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
+    overflow: hidden;
+
+}
+.auth-links:hover{
+    font-weight: bold;
+    background: #df00f8;
+    text-decoration: none;
+    color: #050801;
+    box-shadow: 0 0 5px #56e313,
+                0 0 25px #b9e616,
+                0 0 50px #8803f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
 section {
     position: relative;
     width: 100%;
