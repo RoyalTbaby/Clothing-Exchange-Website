@@ -22,12 +22,8 @@
             <div class="navbar-nav mr-auto">
                 {% if user.is_authenticated %}
             </div>
-            <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <!-- <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link" href="#">Register</a> -->
-              <!-- <button class="noselect">Create Post</button> -->
-<!--                <h3 style="color: white;">Hello {{request.user}}</h3>-->
+
                 <a href="#" id="auth-links">
                 <span></span>
                 <span></span>
@@ -35,14 +31,14 @@
                 <span></span>
                 Create Post
             </a>
-                <a href="#" id="auth-links">
+                <a href="{% url 'profile' %}" id="auth-links">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Profile
             </a>
-                <a href="#" id="auth-links">
+                <a href="{% url 'logout' %}" id="auth-links">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -50,27 +46,20 @@
                 Logout
             </a>
                 {% else %}
-              <a href="#" id="auth-links">
+              <a href="{% url 'login' %}" id="auth-links">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Login
             </a>
-            <a href="#" id="auth-links">
+            <a href="{% url 'register' %}" id="auth-links">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Register
             </a>
-            <!-- <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Neon button
-            </a> -->
                 {% endif %}
             </div>
           </div>

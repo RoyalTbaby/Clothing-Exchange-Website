@@ -1,0 +1,19 @@
+{% extends 'onlineshop/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content-section">
+    <h2>Are you sure you want to log out?</h2>
+    <form id="logout-form" action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="auth-links" type="submit">Logout</button>
+            </div>
+        </form>
+</div>
+
+{% endblock content %}

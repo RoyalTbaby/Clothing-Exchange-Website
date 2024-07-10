@@ -88,7 +88,7 @@ body {
     height: 125px;
     width: 125px;
     margin-right: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 100px;
   }
 
   .account-heading {
@@ -140,12 +140,15 @@ body {
 }
 
 .cardd{
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.849);
-    max-width: 700px;
-    margin: auto;
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.849);
+    max-width: 800px; /* Adjust the width as needed */
+    width: 100%;
+    margin: 40px;
     text-align: center;
     border-radius: 30px;
   }
+
+
   #profile-h1{
       color: rgb(255, 255, 255);
       font-family: 'Poppins', sans-serif;
@@ -159,6 +162,7 @@ body {
 
   button {
     font-family: 'Poppins', sans-serif;
+    margin-top: 40px;
     border: none;
     outline: 0;
     display: inline-block;
@@ -184,11 +188,29 @@ body {
     background-color: rgb(3, 1, 5);
   } */
 
-  #profile-img{
-    margin-top: 20px;
+
+#profile-img {
+    margin-top: -20px;
+    image-resolution: normal;
     box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);
     border-radius: 50px;
-  }
+    object-fit: cover; /* This ensures the image maintains its aspect ratio */
+    display: block; /* Ensures proper centering */
+    margin-left: auto; /* Centers the image horizontally */
+    margin-right: auto; /* Centers the image horizontally */
+    border: 5px solid white;
+    width: 300px;
+    height: 300px;
+}
+
+.rounded-circle {
+    height: 300px;
+}
+
+.account-img {
+    border-radius: 10%;
+    top: 100px;
+}
 
   #footer{
       position: absolute;
