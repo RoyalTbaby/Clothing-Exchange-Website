@@ -8,7 +8,7 @@
     <div class="cardd">
 
       <div class="m-b-25">
-          <img class="rounded-circle account-img" id="profile-img" src="{{ user.profile.image.url }}" class="img-radius" alt="User-Profile-Image">
+          <img class="rounded-circle account-img"  id="profile-img" src="{{ user.profile.image.url }}"  alt="User-Profile-Image">
       </div>
       <h1 id="profile-h1">{{ user.username|title }}</h1>
       <p class="title">{{ user.email }}</p>
@@ -27,13 +27,9 @@
       </form>
 
       <p>
-          <button id="btn-profile"><a href="{% url 'profile-update' %}" id="auth-links">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Update Profile
-          </a></button>
+          <button style="height: 80px"><a href="{% url 'profile-update' %}" class="auth-links">
+              Update Profile</a>
+          </button>
       </p>
     </div>
 {% endblock content %}

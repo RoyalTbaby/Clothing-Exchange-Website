@@ -13,58 +13,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-                {% if user.is_authenticated %}
-            </div>
-            <div class="navbar-nav">
-
-                <a href="{% url 'post_new' %}" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Create Post
-            </a>
-                <a href="{% url 'profile' %}" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Profile
-            </a>
-                <a href="{% url 'logout' %}" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Logout
-            </a>
-                {% else %}
-              <a href="{% url 'login' %}" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Login
-            </a>
-            <a href="{% url 'register' %}" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Register
-            </a>
-                {% endif %}
-            </div>
-          </div>
-        </div>
-      </nav>
+    <header>
+       <li><a href="{% url 'show_home' %}" class="auth-links" style="font-size: 1.7em; background: #1c0522;
+    box-shadow: 0 0 5px lawngreen,
+                0 0 25px #03e9f4,
+                0 0 50px #8803f4,
+                0 0 200px #03e9f4; color: lightpink; font-family: 'Baloo Tammudu 2' "> Home Page </a></li>
+        <ul>
+         {% if user.is_authenticated %}
+            <li><a href="{% url 'clothes' %}" class="auth-links">Clothes</a></li>
+            <li><a href="{% url 'profile' %}" class="auth-links">My Profile</a></li>
+            <li><a href="{% url 'post_new' %}" class="auth-links">Create Post</a></li>
+            <li><a href="{% url 'logout' %}" class="auth-links">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}" class="auth-links">Login</a></li>
+            <li><a href="{% url 'register' %}" class="auth-links">Register</a></li>
+        {% endif %}
+        </ul>
     </header>
     <main role="main" class="container">
       <div class="row">
@@ -84,17 +49,14 @@
           <div class="content-sectionw"></div>
               </div>
 
-        <footer class="">
-          <ul class="nav justify-content-center border-bottom"  style="margin-top: 200%;">
+        <footer style="margin-left: 400px" class="">
+          <ul class="nav justify-content-center border-bottom"  style="margin-top: 200%">
             <li class="nav-item"><a href="{% url 'show_home' %}" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
             <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">About</a></li>
           </ul>
           <p class="text-center text-muted">&copy; Masha's Demo Project 2024</p>
         </footer>
-
     </main>
 
     <!-- Optional JavaScript -->

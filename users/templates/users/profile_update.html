@@ -10,10 +10,13 @@
                 <legend class="border-bottom mb-4">Update Profile</legend>
                 {{ u_form|crispy }}
                 {{ p_form|crispy }}
+                <label class="custom-file-upload">
+                    <input type="file"/>
+                     Upload New Picture
+                </label>
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-<!--                <button class="btn btn-outline-info" type="submit"><a href="{% url 'profile' %}">Go Back</a></button>-->
+                <button type="submit">Update</button>
             </div>
 
         </form>

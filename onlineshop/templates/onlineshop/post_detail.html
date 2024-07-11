@@ -1,25 +1,126 @@
 {% extends 'onlineshop/base.html' %}
 
 {% block content %}
-
 <hr>
-    <article class="media content-section">
-        <img style="width: 15%; height: 10%; border: 5px solid deeppink" class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-        <div class="media-body">
-            <div class="article-metadata>">
-                <a class="mr-2" href="#">{{ object.author }}</a>
-                <small class="text-muted">{{ object.date_posted }}</small>
-                {% if object.author == user %}
-                <div>
-                    <a class="btn btn-outline-success" href="{% url 'post_update' object.id %}">Update</a>
-                    <a class="btn btn-outline-danger" href="{% url 'post_delete' object.id %}">Delete</a>
-                </div>
-                {% endif %}
-            </div>
-            <h2><a class="article-title" href="#">{{ object.title }}</a></h2>
-            <p class="article-content">{{ object.content }}</p>
+<article class="media content-section">
+    <img style="width: 200px; height: 210px; border: 5px solid deeppink" class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#" style="font-size: large">{{ object.author }}</a>
+            <small class="text-muted">{{ object.date_posted }}</small>
         </div>
-        <br>
-    </article>
+        <h2><a class="article-title" href="#">{{ object.title }}</a></h2>
+        <p class="article-content">{{ object.content }}</p>
+
+        {% if object.author == user %}
+        <div class="mt-3">
+            <a class="btn btn-outline-success" href="{% url 'post_update' object.id %}">Update</a>
+            <a class="btn btn-outline-danger" href="{% url 'post_delete' object.id %}">Delete</a>
+        </div>
+        {% endif %}
+    </div>
+    <br>
+</article>
+
+<!-- Card Hover Effect for Images -->
+<div class="post-images mt-4">
+    <div class="row">
+        {% for image in object.images.all %}
+        <div class="col-md-4 mb-4">
+            <div class="image-card">
+                <img src="{{ image.image.url }}" alt="Image for {{ object.title }}" onclick="openModal('{{ image.image.url }}')">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="image-modal-content" id="modalImage">
+</div>
+
+<style>
+.image-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal Styles */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+.image-modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.image-modal-content, .close {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
+<script>
+function openModal(src) {
+    document.getElementById('imageModal').style.display = 'block';
+    document.getElementById('modalImage').src = src;
+}
+
+function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+}
+</script>
 
 {% endblock content %}

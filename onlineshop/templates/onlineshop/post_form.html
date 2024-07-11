@@ -1,18 +1,39 @@
 {% extends 'onlineshop/base.html' %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
-    <div class="content-section">
-        <form action="" method="post">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">New Post</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Post</button>
+<div class="content-section">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">New Post</legend>
+            {{ form|crispy }}
+            <div class="form-group" id="image-upload-container">
+                {{ images.management_form }}
+                {% for form in images %}
+                <div class="mb-3">
+                    <label class="btn btn-outline-primary" for="{{ form.image.id_for_label }}">
+                        Upload Image {{ forloop.counter }}
+                    </label>
+                    {{ form.image }}
+                    <span id="upload-message-{{ forloop.counter0 }}" class="ml-2 text-muted">
+                        {% if form.image.value %}
+                        Image uploaded: {{ form.image.value }}
+                        {% endif %}
+                    </span>
+                </div>
+                {% endfor %}
             </div>
-        </form>
-    </div>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    input[type="file"] {
+        display: none;
+    }
+</style>
 {% endblock content %}
