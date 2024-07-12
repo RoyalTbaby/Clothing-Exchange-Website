@@ -1,25 +1,41 @@
 {% extends 'onlineshop/base.html' %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
-    <div class="content-section">
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Update Profile</legend>
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
-                <label class="custom-file-upload">
-                    <input type="file"/>
-                     Upload New Picture
-                </label>
-            </fieldset>
-            <div class="form-group">
-                <button type="submit">Update</button>
+<div class="content-section">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Update Profile</legend>
+            {{ u_form|crispy }}
+<!--            {{ p_form|crispy }}-->
+            <div class="custom-file mb-3">
+                <input type="file" name="{{ p_form.image.name }}" class="custom-file-input" id="id_image">
+                <label class="custom-file-label" for="id_image">Upload New Picture</label>
             </div>
+            <div class="form-group">
+                <img id="image_preview" src="{% if p_form.instance.image %}{{ p_form.instance.image.url }}{% endif %}"
+                     alt="Image Preview"
+                     style="max-width: 100%; height: auto; display: {% if p_form.instance.image %}block{% else %}none{% endif %};"/>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+    <script>
+        document.getElementById('id_image').addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
 
-        </form>
+            reader.onload = function (e) {
+                var img = document.getElementById('image_preview');
+                img.src = e.target.result;
+                img.style.display = 'block';
+            };
 
-    </div>
+            reader.readAsDataURL(file);
+        });
+    </script>
+</div>
 {% endblock content %}

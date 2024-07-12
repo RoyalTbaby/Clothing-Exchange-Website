@@ -6,21 +6,26 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import PostForm, PostImageFormSet
 
+
 def show_home(request):
     return render(request, 'onlineshop/home.html')
+
 
 def about(request):
     return render(request, 'onlineshop/community.html')
 
-class PostListView(LoginRequiredMixin, ListView):
+
+class PostListView(ListView):
     model = Post
     template_name = 'onlineshop/clothes.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
 
-class PostDetailView(LoginRequiredMixin, DetailView):
+
+class PostDetailView(DetailView):
     model = Post
     template_name = 'onlineshop/post_detail.html'
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -43,6 +48,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
             images.instance = self.object
             images.save()
         return super().form_valid(form)
+
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
@@ -71,6 +77,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post

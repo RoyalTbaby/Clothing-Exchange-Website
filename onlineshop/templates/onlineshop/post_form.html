@@ -2,38 +2,21 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="content-section">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">New Post</legend>
-            {{ form|crispy }}
-            <div class="form-group" id="image-upload-container">
+    <div class="content-section">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+              <fieldset class="form-group">
+                <legend class="border-bottom mb-4">New Post</legend>
+                {{ form|crispy }}
                 {{ images.management_form }}
                 {% for form in images %}
-                <div class="mb-3">
-                    <label class="btn btn-outline-primary" for="{{ form.image.id_for_label }}">
-                        Upload Image {{ forloop.counter }}
-                    </label>
-                    {{ form.image }}
-                    <span id="upload-message-{{ forloop.counter0 }}" class="ml-2 text-muted">
-                        {% if form.image.value %}
-                        Image uploaded: {{ form.image.value }}
-                        {% endif %}
-                    </span>
-                </div>
+                {{ form|crispy }}
                 {% endfor %}
-            </div>
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Save</button>
-        </div>
-    </form>
-</div>
+                </fieldset>
 
-<style>
-    input[type="file"] {
-        display: none;
-    }
-</style>
+            <div class="form-group">
+                <button class="btn btn-primary" style="margin-top: 10px" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
 {% endblock content %}
