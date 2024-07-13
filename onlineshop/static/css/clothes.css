@@ -262,3 +262,12 @@ input[type="file"] {
 .card:hover {
     transform: scale(1.05);
 }
+
+.circle {
+    height: 100px;
+    border-radius: 90%;
+    top: 100px;
+    image-resolution: 300dpi;
+    margin-right: 10px;
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);
+}

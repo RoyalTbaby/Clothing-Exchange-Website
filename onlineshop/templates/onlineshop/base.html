@@ -18,7 +18,7 @@
     box-shadow: 0 0 5px lawngreen,
                 0 0 25px #03e9f4,
                 0 0 50px #8803f4,
-                0 0 200px #03e9f4; color: lightpink; font-family: 'Baloo Tammudu 2' "> Home Page </a></li>
+                0 0 200px #03e9f4; color: lightpink; font-family: 'Baloo Tammudu 2' ">ホームページ</a></li>
         <ul>
          {% if user.is_authenticated %}
             <li><a href="{% url 'clothes' %}" class="auth-links">Clothes</a></li>
@@ -53,7 +53,7 @@
           <ul class="nav justify-content-center border-bottom"  style="margin-top: 200%">
             <li class="nav-item"><a href="{% url 'show_home' %}" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-            <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
           </ul>
           <p class="text-center text-muted">&copy; Masha's Demo Project 2024</p>
         </footer>
